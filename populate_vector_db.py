@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 def load_and_chunk_pdfs(data_dir: str) -> list[Document]:
     """Load PDFs from directory and split into chunks."""
     logger.info("Loading PDFs from %s", data_dir)
-    loader = DirectoryLoader(data_dir, glob="**/*.pdf", loader_cls=PyPDFLoader)
+    loader = DirectoryLoader(data_dir, glob="**/*.pdf", loader_cls=PyPDFLoader) # type: ignore[arg-type]
     documents = loader.load()
 
     # Split documents into chunks

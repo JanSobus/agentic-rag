@@ -25,4 +25,10 @@ output-format = "concise"
 extend-select = ["ALL"]
 ignore =["D213", "D203", "COM812","EM102"]
 
+[tool.pyright]
+# Use the latest version of pyright
+version = "latest"
+venv = ".venv"
+venvPath = "."
+
 

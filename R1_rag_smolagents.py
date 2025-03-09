@@ -10,11 +10,11 @@ from smolagents import CodeAgent, GradioUI, HfApiModel, Model, OpenAIServerModel
 
 dotenv.load_dotenv()
 
-RAG_MODEL_ID = os.getenv("RAG_MODEL")
-CHAT_MODEL_ID = os.getenv("CHAT_MODEL")
+RAG_MODEL_ID = os.getenv("RAG_MODEL", "deepseek-r1:7b-8k")
+CHAT_MODEL_ID = os.getenv("CHAT_MODEL", "qwen2.5:14b-instruct-8k")
 HF_TOKEN = os.getenv("HF_TOKEN")
-MODEL_SOURCE = os.getenv("MODEL_SOURCE")
-DB_DIR = os.getenv("DB_DIR")
+MODEL_SOURCE = os.getenv("MODEL_SOURCE", "ollama")
+DB_DIR = os.getenv("DB_DIR", "chroma_db")
 
 logger = logging.getLogger("Agentic RAG - SmolAgents")
 logging.basicConfig(level=logging.INFO)
@@ -85,7 +85,7 @@ def rag_with_agent(query: str) -> str:
     Answer:"""
 
     # Call the RAG agent with the prompt
-    return rag_agent.run(task=rag_prompt, reset=False)
+    return str(rag_agent.run(task=rag_prompt, reset=False))
 
 
 chat_model = get_model(CHAT_MODEL_ID, MODEL_SOURCE)
