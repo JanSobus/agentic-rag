@@ -1,0 +1,28 @@
+[project]
+name = "agentic-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=0.6.3",
+    "langchain-chroma>=0.2.2",
+    "langchain-community>=0.3.19",
+    "langchain-huggingface>=0.1.2",
+    "langgraph>=0.3.5",
+    "pydantic-ai>=0.0.36",
+    "pypdf>=5.3.1",
+    "smolagents[gradio,griadio]>=1.10.0",
+    "streamlit>=1.43.1",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+output-format = "concise"
+
+[tool.ruff.lint]
+extend-select = ["ALL"]
+ignore =["D213", "D203", "COM812","EM102"]
+
+
